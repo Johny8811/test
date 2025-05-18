@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { DEBOUNCE_TIME } from '@/app/constants';
 
 import { useDebounce } from './useDebounce';
 
@@ -12,7 +13,7 @@ export const useSearch = () => {
   const initSearchTerm = params.get('search');
 
   const [searchTerm, setSearchTerm] = useState(initSearchTerm || '');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debouncedSearchTerm = useDebounce(searchTerm, DEBOUNCE_TIME);
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);

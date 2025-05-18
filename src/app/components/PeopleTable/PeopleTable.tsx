@@ -59,7 +59,7 @@ export const PeopleTable = ({ people }: IPeopleTableProps) => {
                     className="rounded-full"
                     aria-hidden
                     src={person.imageUrl}
-                    alt="Machine"
+                    alt={person.name}
                     width={64}
                     height={64}
                   />
