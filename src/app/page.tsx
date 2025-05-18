@@ -1,7 +1,11 @@
+import { getPeopleData } from '@/api/getPeopleData';
+
 import { QuickFilters } from './components/QuickFilters/QuickFilters';
 import { PeopleTable } from './components/PeopleTable/PeopleTable';
 
-export default function Home() {
+export default async function Home() {
+  const people = await getPeopleData();
+
   return (
     <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
       <div className="p-4">
@@ -11,7 +15,7 @@ export default function Home() {
       <div className="flex border-2 rounded-lg border-neutral-300">
         <QuickFilters />
 
-        <PeopleTable />
+        <PeopleTable people={people.results} />
       </div>
     </div>
   );
