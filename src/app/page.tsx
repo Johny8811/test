@@ -3,8 +3,9 @@ import { getPeopleData } from '@/api/getPeopleData';
 import { QuickFilters } from './components/QuickFilters/QuickFilters';
 import { PeopleTable } from './components/PeopleTable/PeopleTable';
 
-export default async function Home() {
-  const people = await getPeopleData();
+export default async function Home({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
+  const params = await searchParams;
+  const people = await getPeopleData(params.search?.toString());
 
   return (
     <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">

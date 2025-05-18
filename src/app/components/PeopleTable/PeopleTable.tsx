@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { useDebounce } from '@/app/hooks/useDebounce';
+import { useSearch } from '@/app/hooks/useSearch';
 
 import { IPeople } from '@/types/people';
 
@@ -11,8 +10,7 @@ export interface IPeopleTableProps {
 }
 
 export const PeopleTable = ({ people }: IPeopleTableProps) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const { searchTerm, setSearchTerm } = useSearch();
 
   return (
     <div className="p-4 w-full flex flex-col gap-4">
