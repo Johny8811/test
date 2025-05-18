@@ -1,6 +1,6 @@
 export const QuickFilters = () => {
   return (
-    <div className="flex flex-col gap-4 p-4 w-[200] border-r-1 border-neutral-300">
+    <div className="flex flex-row lg:flex-col gap-4 p-4 lg:w-[200] border-r-1 border-neutral-300">
       <div>
         <h2 className="text-lg font-semibold mb-2">Genred</h2>
         <ul className="list-none flex flex-col gap-1 pl-2">

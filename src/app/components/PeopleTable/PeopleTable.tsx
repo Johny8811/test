@@ -35,7 +35,7 @@ export const PeopleTable = ({ people }: IPeopleTableProps) => {
       <div className="max-h-[calc(100vh-215px)] overflow-y-auto p-0.25">
         <table className="w-full">
           <thead>
-            <tr>
+            <tr className="flex flex-col lg:table-row">
               <th className="py-2" />
               <th className="py-2">Name</th>
               <th className="py-2">Birth yea r</th>
@@ -50,7 +50,7 @@ export const PeopleTable = ({ people }: IPeopleTableProps) => {
               <tr
                 key={person.name}
                 tabIndex={0}
-                className="focus:outline focus:outline-blue-500 hover:outline hover:outline-blue-500 rounded-lg cursor-pointer"
+                className="flex flex-col lg:table-row focus:outline focus:outline-blue-500 hover:outline hover:outline-blue-500 rounded-lg cursor-pointer"
               >
                 <td className="text-center flex justify-center items-center py-2">
                   <Image

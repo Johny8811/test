@@ -12,7 +12,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ [
         <h1 className="text-3xl font-semibold">Alliance Book</h1>
       </div>
 
-      <div className="flex border-2 rounded-lg border-neutral-300">
+      <div className="flex flex-col lg:flex-row border-2 rounded-lg border-neutral-300">
         <QuickFilters />
 
         <PeopleTable people={peopleWithImages} />
