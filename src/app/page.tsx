@@ -1,11 +1,10 @@
-import { getPeopleData } from '@/api/getPeopleData';
-
 import { QuickFilters } from './components/QuickFilters/QuickFilters';
 import { PeopleTable } from './components/PeopleTable/PeopleTable';
+import { getPeopleWithImages } from './api/getPeopleWithImages';
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
   const params = await searchParams;
-  const people = await getPeopleData(params.search?.toString());
+  const peopleWithImages = await getPeopleWithImages(params);
 
   return (
     <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
@@ -16,7 +15,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ [
       <div className="flex border-2 rounded-lg border-neutral-300">
         <QuickFilters />
 
-        <PeopleTable people={people.results} />
+        <PeopleTable people={peopleWithImages} />
       </div>
     </div>
   );

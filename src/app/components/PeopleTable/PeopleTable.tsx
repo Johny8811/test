@@ -4,13 +4,23 @@ import Image from 'next/image';
 import { useSearch } from '@/app/hooks/useSearch';
 
 import { IPeople } from '@/types/people';
+import { useMemo } from 'react';
 
 export interface IPeopleTableProps {
-  people: IPeople[];
+  people: (IPeople & { image: Blob })[];
 }
 
 export const PeopleTable = ({ people }: IPeopleTableProps) => {
   const { searchTerm, setSearchTerm } = useSearch();
+
+  const peopleWithImageUrl = useMemo(
+    () =>
+      people.map((p) => ({
+        ...p,
+        imageUrl: URL.createObjectURL(p.image),
+      })),
+    [people]
+  );
 
   return (
     <div className="p-4 w-full flex flex-col gap-4">
@@ -36,7 +46,7 @@ export const PeopleTable = ({ people }: IPeopleTableProps) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-300">
-            {people.map((person) => (
+            {peopleWithImageUrl.map((person) => (
               <tr
                 key={person.name}
                 tabIndex={0}
@@ -48,7 +58,7 @@ export const PeopleTable = ({ people }: IPeopleTableProps) => {
                     tabIndex={0}
                     className="rounded-full"
                     aria-hidden
-                    src="https://vieraboschkova.github.io/swapi-gallery/static/assets/img/people/1.jpg"
+                    src={person.imageUrl}
                     alt="Machine"
                     width={64}
                     height={64}
