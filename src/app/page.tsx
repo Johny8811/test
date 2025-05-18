@@ -2,69 +2,105 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{' '}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
+      <div className="p-4">
+        <h1 className="text-3xl font-semibold">Alliance Book</h1>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={20} height={20} />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="flex border-2 rounded-lg border-neutral-300">
+        <div className="flex flex-col gap-4 p-4 w-[200] border-r-1 border-neutral-300">
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Genred</h2>
+            <ul className="list-none flex flex-col gap-1 pl-2">
+              <li className="flex gap-2">
+                <input type="checkbox" id="male" name="male" />
+                <label htmlFor="male">Male</label>
+              </li>
+              <li className="flex gap-2">
+                <input type="checkbox" id="female" name="female" />
+                <label htmlFor="female">Female</label>
+              </li>
+              <li className="flex gap-2">
+                <input type="checkbox" id="unknown" name="unknown" />
+                <label htmlFor="unknown">Unknown</label>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Films</h2>
+            <ul className="list-none flex flex-col gap-1 pl-2">
+              <li className="flex gap-2">
+                <input type="checkbox" id="new_hope" name="New Hope" />
+                <label htmlFor="new_hope">A New Hope</label>
+              </li>
+              <li className="flex gap-2">
+                <input type="checkbox" id="empire_strikes_back" name="Empire Strikes Back" />
+                <label htmlFor="empire_strikes_back">The Empire Strikes Back</label>
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="p-4 w-full flex flex-col gap-4">
+          <input
+            className="w-full border-1 rounded-lg border-neutral-300 p-2 px-4 focus:outline-blue-500"
+            type="text"
+            placeholder="Search"
+          />
+
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="py-2" />
+                <th className="py-2">Name</th>
+                <th className="py-2">Birth yea r</th>
+                <th className="py-2">Height</th>
+                <th className="py-2">Genre</th>
+                <th className="py-2">Homeworld</th>
+                <th className="py-2">Mass</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-neutral-300">
+              <tr
+                tabIndex={0}
+                className="focus:outline focus:outline-blue-500 hover:outline hover:outline-blue-500 rounded-lg cursor-pointer"
+              >
+                <td className="text-center flex justify-center items-center py-2">
+                  <Image
+                    // TODO: zoom image on space tap
+                    tabIndex={0}
+                    className="rounded-full"
+                    aria-hidden
+                    src="https://vieraboschkova.github.io/swapi-gallery/static/assets/img/people/1.jpg"
+                    alt="Machine"
+                    width={64}
+                    height={64}
+                  />
+                </td>
+                <td className="text-center py-2">Luke Skywalker</td>
+                <td className="text-center py-2">19BBY</td>
+                <td className="text-center py-2">172</td>
+                <td className="text-center py-2">Male</td>
+                <td className="text-center py-2">Tatooine</td>
+                <td className="text-center py-2">77</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="flex justify-end gap-4">
+            <button>{'<'}</button>
+
+            <div className="flex gap-3">
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+            </div>
+
+            <button>{'>'}</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
